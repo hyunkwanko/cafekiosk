@@ -1,5 +1,6 @@
 package sample.cafekiosk.spring.api.service.order;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,5 +71,10 @@ class OrderServiceTest {
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("메뉴 이름")
                 .build();
+    }
+
+    @BeforeEach
+    public void beforeEach() {
+        productRepository.deleteAll();
     }
 }

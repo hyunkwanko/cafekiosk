@@ -1,5 +1,6 @@
 package sample.cafekiosk.spring.product;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,5 +105,10 @@ class ProductRepositoryTest {
                         tuple("001", "아메리카노", ProductSellingStatus.SELLING),
                         tuple("002", "카페라떼", ProductSellingStatus.HOLD)
                 );
+    }
+
+    @BeforeEach
+    public void beforeEach() {
+        productRepository.deleteAll();
     }
 }
