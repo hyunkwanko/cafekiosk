@@ -1,11 +1,11 @@
 package sample.cafekiosk.spring.product;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductRepository;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
@@ -17,6 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.tuple;
 
 @ActiveProfiles("test")
+@Transactional
 @SpringBootTest
 class ProductRepositoryTest {
 
@@ -105,10 +106,5 @@ class ProductRepositoryTest {
                         tuple("001", "아메리카노", ProductSellingStatus.SELLING),
                         tuple("002", "카페라떼", ProductSellingStatus.HOLD)
                 );
-    }
-
-    @BeforeEach
-    public void beforeEach() {
-        productRepository.deleteAll();
     }
 }

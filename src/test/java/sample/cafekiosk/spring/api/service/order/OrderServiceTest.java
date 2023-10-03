@@ -1,11 +1,11 @@
 package sample.cafekiosk.spring.api.service.order;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
 import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
 import sample.cafekiosk.spring.api.service.order.response.OrderResponse;
 import sample.cafekiosk.spring.domain.product.Product;
@@ -21,6 +21,7 @@ import static org.assertj.core.api.Assertions.tuple;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles("test")
+@Transactional
 @SpringBootTest
 class OrderServiceTest {
 
@@ -71,10 +72,5 @@ class OrderServiceTest {
                 .sellingStatus(ProductSellingStatus.SELLING)
                 .name("메뉴 이름")
                 .build();
-    }
-
-    @BeforeEach
-    public void beforeEach() {
-        productRepository.deleteAll();
     }
 }
