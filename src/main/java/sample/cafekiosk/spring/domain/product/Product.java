@@ -1,9 +1,6 @@
 package sample.cafekiosk.spring.domain.product;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import sample.cafekiosk.spring.BaseEntity;
 
 import javax.persistence.*;
