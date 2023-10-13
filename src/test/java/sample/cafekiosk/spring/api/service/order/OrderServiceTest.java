@@ -25,7 +25,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles("test")
-@Transactional
+//@Transactional
 @SpringBootTest
 class OrderServiceTest {
 
@@ -45,12 +45,13 @@ class OrderServiceTest {
     @Autowired
     private OrderService orderService;
 
-//    @AfterEach
-//    void tearDown() {
-//        orderProductRepository.deleteAllInBatch();
-//        productRepository.deleteAllInBatch();
-//        orderRepository.deleteAllInBatch();
-//    }
+    @AfterEach
+    void tearDown() {
+        orderProductRepository.deleteAllInBatch();
+        productRepository.deleteAllInBatch();
+        orderRepository.deleteAllInBatch();
+        stockRepository.deleteAllInBatch();
+    }
 
     @DisplayName("주문번호 리스트를 받아 주문을 생성한다.")
     @Test
