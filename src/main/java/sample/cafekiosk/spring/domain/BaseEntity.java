@@ -1,4 +1,4 @@
-package sample.cafekiosk.spring;
+package sample.cafekiosk.spring.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,7 +1,7 @@
 package sample.cafekiosk.spring.domain.product;
 
 import lombok.*;
-import sample.cafekiosk.spring.BaseEntity;
+import sample.cafekiosk.spring.domain.BaseEntity;
 
 import javax.persistence.*;
 
